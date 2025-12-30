@@ -1,38 +1,61 @@
-import { type User, type InsertUser } from "@shared/schema";
-import { randomUUID } from "crypto";
-
-// modify the interface with any CRUD methods
-// you might need
+import { db } from "./db";
+import {
+  faqs,
+  teamMembers,
+  guides,
+  type Faq,
+  type TeamMember,
+  type Guide,
+  type InsertFaq,
+  type InsertTeamMember,
+  type InsertGuide
+} from "@shared/schema";
+import { eq } from "drizzle-orm";
 
 export interface IStorage {
-  getUser(id: string): Promise<User | undefined>;
-  getUserByUsername(username: string): Promise<User | undefined>;
-  createUser(user: InsertUser): Promise<User>;
+  getFaqs(): Promise<Faq[]>;
+  getTeamMembers(): Promise<TeamMember[]>;
+  getGuides(): Promise<Guide[]>;
+  getGuideBySlug(slug: string): Promise<Guide | undefined>;
+  
+  // Seeding methods
+  createFaq(faq: InsertFaq): Promise<Faq>;
+  createTeamMember(member: InsertTeamMember): Promise<TeamMember>;
+  createGuide(guide: InsertGuide): Promise<Guide>;
 }
 
-export class MemStorage implements IStorage {
-  private users: Map<string, User>;
-
-  constructor() {
-    this.users = new Map();
+export class DatabaseStorage implements IStorage {
+  async getFaqs(): Promise<Faq[]> {
+    return await db.select().from(faqs);
   }
 
-  async getUser(id: string): Promise<User | undefined> {
-    return this.users.get(id);
+  async getTeamMembers(): Promise<TeamMember[]> {
+    return await db.select().from(teamMembers);
   }
 
-  async getUserByUsername(username: string): Promise<User | undefined> {
-    return Array.from(this.users.values()).find(
-      (user) => user.username === username,
-    );
+  async getGuides(): Promise<Guide[]> {
+    return await db.select().from(guides);
   }
 
-  async createUser(insertUser: InsertUser): Promise<User> {
-    const id = randomUUID();
-    const user: User = { ...insertUser, id };
-    this.users.set(id, user);
-    return user;
+  async getGuideBySlug(slug: string): Promise<Guide | undefined> {
+    const [guide] = await db.select().from(guides).where(eq(guides.slug, slug));
+    return guide;
+  }
+
+  async createFaq(faq: InsertFaq): Promise<Faq> {
+    const [newFaq] = await db.insert(faqs).values(faq).returning();
+    return newFaq;
+  }
+
+  async createTeamMember(member: InsertTeamMember): Promise<TeamMember> {
+    const [newMember] = await db.insert(teamMembers).values(member).returning();
+    return newMember;
+  }
+
+  async createGuide(guide: InsertGuide): Promise<Guide> {
+    const [newGuide] = await db.insert(guides).values(guide).returning();
+    return newGuide;
   }
 }
 
-export const storage = new MemStorage();
+export const storage = new DatabaseStorage();
