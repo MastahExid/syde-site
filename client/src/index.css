@@ -5,24 +5,24 @@
 @tailwind utilities;
 
 :root {
-  /* Syde Color Palette - Blue to Magenta Gradient */
-  --background: 250 60% 15%;    /* Dark blue base */
+  /* Force Dark Mode Palette - Deep Near-Black with Soft Blue Glow */
+  --background: 240 20% 3%;     /* Deep near-black */
   --foreground: 210 20% 98%;    /* White-ish */
 
-  --card: 250 60% 20%;          /* Slightly lighter blue */
+  --card: 240 20% 7%;           /* Slightly lighter dark */
   --card-foreground: 210 20% 98%;
 
-  --popover: 250 60% 20%;
+  --popover: 240 20% 7%;
   --popover-foreground: 210 20% 98%;
 
   --primary: 320 61% 61%;       /* #cc6baa - Syde Accent Magenta/Pink */
   --primary-foreground: 210 20% 98%;
 
-  --secondary: 250 50% 25%;     /* Dark blue */
+  --secondary: 210 30% 12%;     /* Dark Blue-Grey */
   --secondary-foreground: 210 20% 98%;
 
-  --muted: 250 40% 30%;
-  --muted-foreground: 210 20% 75%;
+  --muted: 210 30% 15%;
+  --muted-foreground: 215 20% 65%;
 
   --accent: 320 61% 61%;        /* #cc6baa - Match primary */
   --accent-foreground: 210 20% 98%;
@@ -30,8 +30,8 @@
   --destructive: 0 62% 30%;
   --destructive-foreground: 210 20% 98%;
 
-  --border: 250 50% 25%;
-  --input: 250 50% 25%;
+  --border: 240 20% 12%;
+  --input: 240 20% 12%;
   --ring: 320 61% 61%;
 
   --radius: 1rem;
@@ -41,12 +41,13 @@
 
 @layer base {
   body {
-    @apply text-foreground antialiased selection:bg-primary/30 selection:text-white;
+    @apply bg-background text-foreground antialiased selection:bg-primary/30 selection:text-white;
     font-family: var(--font-sans);
-    /* Simple gradient from deep blue to magenta/red */
-    background: linear-gradient(135deg, #1e3a8a 0%, #312e81 25%, #6b21a8 50%, #be123c 75%, #7c2d12 100%);
+    /* Create the deep near-black background with soft blue glow */
+    background-image: 
+      radial-gradient(circle at 15% 50%, rgba(59, 130, 246, 0.08), transparent 30%),
+      radial-gradient(circle at 85% 30%, rgba(96, 165, 250, 0.06), transparent 35%);
     background-attachment: fixed;
-    min-height: 100vh;
   }
 }
 
