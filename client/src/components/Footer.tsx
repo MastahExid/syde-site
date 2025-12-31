@@ -8,9 +8,7 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
           <div className="col-span-1 md:col-span-2">
             <Link href="/" className="flex items-center space-x-2 mb-4 cursor-pointer">
-              <div className="w-8 h-8 rounded-xl bg-gradient-to-tr from-primary to-accent flex items-center justify-center">
-                <span className="font-bold text-white">S</span>
-              </div>
+              <img src="/syde-logo.png" alt="Syde" className="h-8 w-auto" />
               <span className="font-bold text-xl text-white">Syde</span>
             </Link>
             <p className="text-muted-foreground max-w-sm leading-relaxed">

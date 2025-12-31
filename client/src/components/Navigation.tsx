@@ -20,10 +20,8 @@ export function Navigation() {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2 group cursor-pointer">
-            <div className="w-8 h-8 rounded-xl bg-gradient-to-tr from-primary to-accent flex items-center justify-center shadow-lg group-hover:shadow-primary/50 transition-all duration-300">
-              <span className="font-bold text-white text-lg">S</span>
-            </div>
-            <span className="font-bold text-xl tracking-tight text-white group-hover:text-primary transition-colors">Syde</span>
+            <img src="/syde-logo.png" alt="Syde" className="h-8 w-auto" />
+            <span className="font-bold text-xl tracking-tight text-white group-hover:text-primary transition-colors hidden sm:inline">Syde</span>
           </Link>
 
           {/* Desktop Nav */}

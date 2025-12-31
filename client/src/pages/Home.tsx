@@ -35,65 +35,91 @@ export default function Home() {
           {/* Background Elements */}
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-[500px] bg-primary/20 blur-[120px] rounded-full -z-10" />
           
-          <div className="max-w-7xl mx-auto text-center relative z-10">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
-            >
-              <h2 className="text-lg md:text-xl font-medium text-primary mb-4 tracking-wide uppercase">
-                The Future of Sideloading
-              </h2>
-              <h1 className="text-5xl md:text-7xl lg:text-9xl tracking-tight mb-8 text-white drop-shadow-2xl">
-                <span className="font-light italic font-serif opacity-90">Just</span>{" "}
-                <span className="font-black text-transparent bg-clip-text bg-gradient-to-br from-white via-white to-white/70">SYDE</span>{" "}
-                <span className="font-normal opacity-90">It.</span>
-              </h1>
-              <p className="max-w-2xl mx-auto text-lg md:text-xl text-muted-foreground mb-10 leading-relaxed">
-                Discover, manage, and install iOS apps beyond the App Store. 
-                Experience freedom with our curated collections and powerful repositories.
-              </p>
-              
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <button className="px-8 py-4 rounded-full bg-white text-black font-bold text-lg hover:bg-gray-200 transition-all flex items-center gap-2 shadow-xl shadow-white/10 hover:shadow-white/20 hover:-translate-y-1">
-                  <Download className="w-5 h-5" />
-                  Download IPA
-                </button>
-                <button className="px-8 py-4 rounded-full bg-white/10 text-white font-medium text-lg hover:bg-white/20 border border-white/10 transition-all backdrop-blur-sm flex items-center gap-2 hover:-translate-y-1">
-                  Get Started <ArrowRight className="w-5 h-5" />
-                </button>
-              </div>
-            </motion.div>
+          <div className="max-w-7xl mx-auto relative z-10">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
+              >
+                <h2 className="text-lg md:text-xl font-medium text-primary mb-4 tracking-wide uppercase">
+                  The Future of Sideloading
+                </h2>
+                <h1 className="text-5xl md:text-7xl lg:text-7xl tracking-tight mb-8 text-white drop-shadow-2xl">
+                  <span className="font-light italic font-serif opacity-90">Just</span>{" "}
+                  <span className="font-black text-transparent bg-clip-text bg-gradient-to-br from-white via-white to-white/70">SYDE</span>{" "}
+                  <span className="font-normal opacity-90">It.</span>
+                </h1>
+                <p className="max-w-2xl text-lg md:text-xl text-muted-foreground mb-10 leading-relaxed">
+                  Discover, manage, and install iOS apps beyond the App Store. 
+                  Experience freedom with our curated collections and powerful repositories.
+                </p>
+                
+                <div className="flex flex-col sm:flex-row items-start gap-4">
+                  <a href="/download" className="px-8 py-4 rounded-full bg-white text-black font-bold text-lg hover:bg-gray-200 transition-all flex items-center gap-2 shadow-xl shadow-white/10 hover:shadow-white/20 hover:-translate-y-1">
+                    <Download className="w-5 h-5" />
+                    Download IPA
+                  </a>
+                  <a href="/guides" className="px-8 py-4 rounded-full bg-white/10 text-white font-medium text-lg hover:bg-white/20 border border-white/10 transition-all backdrop-blur-sm flex items-center gap-2 hover:-translate-y-1">
+                    Get Started <ArrowRight className="w-5 h-5" />
+                  </a>
+                </div>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                className="relative h-[500px] w-full"
+              >
+                <img 
+                  src="/mobile-screenshot.png" 
+                  alt="Syde App Screenshot" 
+                  className="w-full h-full object-contain"
+                />
+              </motion.div>
+            </div>
           </div>
         </section>
 
         {/* INSTALL APPS SECTION */}
         <section className="py-20 border-t border-white/5 bg-black/20 backdrop-blur-sm">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
-            <div className="flex items-center justify-between mb-8">
-              <div>
-                <h2 className="text-3xl font-bold text-white mb-2">Install Any IPA</h2>
-                <p className="text-muted-foreground">Browse our curated collection of popular tweaked apps.</p>
-              </div>
-              <a href="#" className="text-primary hover:text-accent transition-colors font-medium hidden md:block">
-                View all apps →
-              </a>
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="mb-12">
+              <h2 className="text-3xl font-bold text-white mb-2">Install Any IPA</h2>
+              <p className="text-muted-foreground">Browse our curated collection of popular tweaked apps.</p>
             </div>
             
-            {/* Horizontal Scroll Area */}
-            <div className="relative group">
-              <div className="absolute inset-y-0 left-0 w-12 bg-gradient-to-r from-background to-transparent z-10" />
-              <div className="absolute inset-y-0 right-0 w-12 bg-gradient-to-l from-background to-transparent z-10" />
-              
-              <div className="flex overflow-x-auto gap-6 pb-8 pt-4 px-4 snap-x hide-scrollbar">
-                {apps.map((app, i) => (
-                  <AppCapsule key={app.name} name={app.name} iconColor={app.color} delay={i * 0.1} />
-                ))}
-                {/* Duplicates to make scrolling feel longer */}
-                {apps.map((app, i) => (
-                  <AppCapsule key={`${app.name}-dup`} name={app.name} iconColor={app.color} delay={(i + apps.length) * 0.1} />
-                ))}
-              </div>
+            {/* 4-Row Grid Layout */}
+            <div className="grid grid-cols-1 gap-6">
+              {[
+                { name: "Delta", desc: "Nintendo emulator with multiplayer support", color: "bg-purple-500" },
+                { name: "Spotify++", desc: "Enhanced Spotify with premium features", color: "bg-green-500" },
+                { name: "uYou+", desc: "YouTube with advanced customization", color: "bg-red-500" },
+                { name: "Enmity", desc: "Discord client with mods and themes", color: "bg-blue-500" },
+                { name: "Esign", desc: "Free app signer for iOS devices", color: "bg-indigo-500" },
+                { name: "Scarlet", desc: "Advanced sideloading utility", color: "bg-orange-500" },
+                { name: "Filza", desc: "File manager for iOS", color: "bg-yellow-500" },
+                { name: "Sileo", desc: "Package manager for tweaks", color: "bg-pink-500" }
+              ].map((app, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: (i % 2) * 0.1 }}
+                  className="p-6 rounded-2xl glass-card hover:bg-white/5 transition-colors flex items-center gap-6"
+                >
+                  <div className={`w-16 h-16 rounded-2xl ${app.color} flex-shrink-0 flex items-center justify-center text-white font-bold text-lg shadow-lg`}>
+                    {app.name.charAt(0)}
+                  </div>
+                  <div className="flex-grow">
+                    <h3 className="text-lg font-bold text-white">{app.name}</h3>
+                    <p className="text-muted-foreground text-sm">{app.desc}</p>
+                  </div>
+                  <ArrowRight className="w-5 h-5 text-primary flex-shrink-0" />
+                </motion.div>
+              ))}
             </div>
           </div>
         </section>
@@ -187,47 +213,58 @@ export default function Home() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
               {team && team.length > 0 ? (
-                team.map((member) => (
-                  <motion.div
-                    key={member.id}
-                    whileHover={{ y: -5 }}
-                    className="p-8 rounded-3xl glass-card flex items-center gap-6"
-                  >
-                    <div className="w-20 h-20 rounded-full bg-gradient-to-br from-gray-700 to-gray-900 overflow-hidden flex-shrink-0 border-2 border-white/10">
-                      {member.avatarUrl ? (
-                        <img src={member.avatarUrl} alt={member.name} className="w-full h-full object-cover" />
-                      ) : (
-                        <div className="w-full h-full flex items-center justify-center text-2xl font-bold text-white/50">
-                          {member.name.charAt(0)}
-                        </div>
-                      )}
-                    </div>
-                    <div>
-                      <h3 className="text-xl font-bold text-white">{member.name}</h3>
-                      <p className="text-primary font-medium text-sm mb-2">{member.role}</p>
-                      <p className="text-muted-foreground text-sm">{member.description}</p>
-                    </div>
-                  </motion.div>
-                ))
+                team.map((member) => {
+                  const memberLinks: { [key: string]: string } = {
+                    "Exid": "https://x.com/fwmexid",
+                    "Dyllie": "https://beacons.ai/dyllie/mediakit"
+                  };
+                  const href = memberLinks[member.name] || "#";
+                  
+                  return (
+                    <motion.a
+                      key={member.id}
+                      href={href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      whileHover={{ y: -5 }}
+                      className="p-8 rounded-3xl glass-card flex items-center gap-6 cursor-pointer hover:bg-white/5 transition-colors"
+                    >
+                      <div className="w-20 h-20 rounded-full bg-gradient-to-br from-gray-700 to-gray-900 overflow-hidden flex-shrink-0 border-2 border-white/10">
+                        {member.avatarUrl ? (
+                          <img src={member.avatarUrl} alt={member.name} className="w-full h-full object-cover" />
+                        ) : (
+                          <div className="w-full h-full flex items-center justify-center text-2xl font-bold text-white/50">
+                            {member.name.charAt(0)}
+                          </div>
+                        )}
+                      </div>
+                      <div>
+                        <h3 className="text-xl font-bold text-white">{member.name}</h3>
+                        <p className="text-primary font-medium text-sm mb-2">{member.role}</p>
+                        <p className="text-muted-foreground text-sm">{member.description}</p>
+                      </div>
+                    </motion.a>
+                  );
+                })
               ) : (
                 <>
                   {/* Fallback Static Team if API empty */}
-                  <div className="p-8 rounded-3xl glass-card flex items-center gap-6">
+                  <a href="https://x.com/fwmexid" target="_blank" rel="noopener noreferrer" className="p-8 rounded-3xl glass-card flex items-center gap-6 cursor-pointer hover:bg-white/5 transition-colors">
                     <div className="w-20 h-20 rounded-full bg-indigo-900 border-2 border-white/10 flex items-center justify-center text-2xl font-bold text-white">E</div>
                     <div>
                       <h3 className="text-xl font-bold text-white">Exid</h3>
                       <p className="text-primary font-medium text-sm mb-2">Lead Developer</p>
                       <p className="text-muted-foreground text-sm">Building the core infrastructure.</p>
                     </div>
-                  </div>
-                  <div className="p-8 rounded-3xl glass-card flex items-center gap-6">
+                  </a>
+                  <a href="https://beacons.ai/dyllie/mediakit" target="_blank" rel="noopener noreferrer" className="p-8 rounded-3xl glass-card flex items-center gap-6 cursor-pointer hover:bg-white/5 transition-colors">
                     <div className="w-20 h-20 rounded-full bg-purple-900 border-2 border-white/10 flex items-center justify-center text-2xl font-bold text-white">D</div>
                     <div>
                       <h3 className="text-xl font-bold text-white">Dyllie</h3>
                       <p className="text-primary font-medium text-sm mb-2">UI/UX Designer</p>
                       <p className="text-muted-foreground text-sm">Crafting the visual experience.</p>
                     </div>
-                  </div>
+                  </a>
                 </>
               )}
             </div>

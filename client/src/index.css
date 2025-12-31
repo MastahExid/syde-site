@@ -25,6 +25,9 @@
   --muted-foreground: 215 20% 65%;
 
   --accent: 320 61% 61%;        /* #cc6baa - Match primary */
+  
+  --gradient-start: 218 100% 51%;   /* #2444CD */
+  --gradient-end: 0 100% 37%;       /* #BF000A */
   --accent-foreground: 210 20% 98%;
 
   --destructive: 0 62% 30%;
