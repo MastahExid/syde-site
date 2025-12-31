@@ -5,34 +5,34 @@
 @tailwind utilities;
 
 :root {
-  /* Force Dark Mode Palette - Deep Purple/Blue/Black Theme */
-  --background: 240 20% 4%;     /* Very dark almost black blue */
+  /* Force Dark Mode Palette - Deep Near-Black with Soft Blue Glow */
+  --background: 240 20% 3%;     /* Deep near-black */
   --foreground: 210 20% 98%;    /* White-ish */
 
-  --card: 240 20% 8%;           /* Slightly lighter dark */
+  --card: 240 20% 7%;           /* Slightly lighter dark */
   --card-foreground: 210 20% 98%;
 
-  --popover: 240 20% 8%;
+  --popover: 240 20% 7%;
   --popover-foreground: 210 20% 98%;
 
-  --primary: 260 100% 65%;      /* Vivid Purple */
+  --primary: 320 61% 61%;       /* #cc6baa - Syde Accent Magenta/Pink */
   --primary-foreground: 210 20% 98%;
 
-  --secondary: 210 30% 15%;     /* Dark Blue-Grey */
+  --secondary: 210 30% 12%;     /* Dark Blue-Grey */
   --secondary-foreground: 210 20% 98%;
 
   --muted: 210 30% 15%;
   --muted-foreground: 215 20% 65%;
 
-  --accent: 190 90% 50%;        /* Cyan/Blue Accent */
+  --accent: 320 61% 61%;        /* #cc6baa - Match primary */
   --accent-foreground: 210 20% 98%;
 
   --destructive: 0 62% 30%;
   --destructive-foreground: 210 20% 98%;
 
-  --border: 240 20% 15%;
-  --input: 240 20% 15%;
-  --ring: 260 100% 65%;
+  --border: 240 20% 12%;
+  --input: 240 20% 12%;
+  --ring: 320 61% 61%;
 
   --radius: 1rem;
 
@@ -43,10 +43,10 @@
   body {
     @apply bg-background text-foreground antialiased selection:bg-primary/30 selection:text-white;
     font-family: var(--font-sans);
-    /* Create the deep gradient background */
+    /* Create the deep near-black background with soft blue glow */
     background-image: 
-      radial-gradient(circle at 15% 50%, rgba(76, 29, 149, 0.15), transparent 25%),
-      radial-gradient(circle at 85% 30%, rgba(56, 189, 248, 0.1), transparent 25%);
+      radial-gradient(circle at 15% 50%, rgba(59, 130, 246, 0.08), transparent 30%),
+      radial-gradient(circle at 85% 30%, rgba(96, 165, 250, 0.06), transparent 35%);
     background-attachment: fixed;
   }
 }

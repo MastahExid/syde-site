@@ -1,0 +1,101 @@
+Update the website to fully match Syde’s visual identity. Keep the layout, spacing, and typography exactly the same — only adjust colors, background style, and incorrect copy.
+
+Background / Theme
+
+The current purple gradient does not fit Syde. Replace it with a dark, premium, Apple-style background using deep near-black tones with soft blue glow lighting.
+
+Visual direction:
+
+Overall base: near-black / deep navy (almost black)
+
+Subtle blue glow in the background (not purple)
+
+Smooth, soft gradients — no harsh color bands
+
+Slight depth and atmosphere, not flat
+
+Accent color (important):
+
+Use #cc6baa as the ONLY accent color
+
+Apply it to:
+
+Primary buttons
+
+Active links
+
+Highlights
+
+Small UI accents
+
+Do NOT tint the entire background with this color — it’s an accent, not a wash
+
+The background should feel:
+
+Clean
+
+Modern
+
+“Aero / iOS-inspired”
+
+Calm and premium
+
+Cards & Sections
+
+Cards should stay dark
+
+Very subtle borders or separation
+
+Soft hover glow using the accent color (#cc6baa)
+
+No bright purple panels
+
+Fix “How It Works” (this section is currently wrong)
+
+Syde does NOT install via configuration profiles and does NOT require trusting anything in iOS settings.
+
+Syde is:
+
+An app library
+
+A repository browser
+
+An IPA discovery and download tool
+
+Users install apps using their own preferred signing method (AltStore, SideStore, Sideloadly, ESign, Scarlet, TrollStore if supported, etc.).
+
+Rewrite the section like this:
+
+Title: How It Works
+Subtitle: Syde helps you discover apps and repos. You choose how you install.
+
+Steps:
+
+Install Syde
+Download the Syde IPA and install it using your preferred sideloading method.
+
+Add Repositories
+Add curated or custom repos to unlock more apps and sources.
+
+Download IPAs
+Browse and download IPAs from Syde, then install them using your signer of choice.
+
+Remove any mention of:
+
+Configuration profiles
+
+Trusting certificates
+
+Device management
+
+Final Check
+
+Accent color consistency across the site
+
+No purple-heavy gradients
+
+Accurate wording
+
+Clean, confident, modern feel
+
+Do not add new features or sections — only correct visuals and copy.

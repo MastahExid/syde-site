@@ -132,16 +132,16 @@ export default function Home() {
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">How It Works</h2>
               <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-                Getting started with Syde is easier than you think. No computer required for most features.
+                Syde helps you discover apps and repos. You choose how you install.
               </p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
               <div className="space-y-8">
                 {[
-                  { step: "01", title: "Download Syde", desc: "Get the configuration profile from our website." },
-                  { step: "02", title: "Trust Profile", desc: "Go to Settings > General > VPN & Device Management." },
-                  { step: "03", title: "Start Installing", desc: "Open Syde and browse thousands of apps." }
+                  { step: "01", title: "Install Syde", desc: "Download the Syde IPA and install it using your preferred sideloading method." },
+                  { step: "02", title: "Add Repositories", desc: "Add curated or custom repos to unlock more apps and sources." },
+                  { step: "03", title: "Download IPAs", desc: "Browse and download IPAs from Syde, then install them using your signer of choice." }
                 ].map((item, i) => (
                   <div key={i} className="flex gap-6 group">
                     <div className="flex-shrink-0 w-12 h-12 rounded-full border border-white/10 flex items-center justify-center text-lg font-bold text-muted-foreground group-hover:border-primary group-hover:text-primary transition-colors bg-background">
